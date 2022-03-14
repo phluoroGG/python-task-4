@@ -8,17 +8,14 @@ def read_string_from_file(filename):
 def reverse_words_symmetrical(string):
     english_alphabet = 'abcdefghijklmnopqrstuvwxyz'
     russian_alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
-    chars = [char for char in string]
+    chars = list(string)
     for j in range(len(chars)):
-        if chars[j] == ' ':
-            continue
-        if english_alphabet.find(chars[j].lower()) + 1:
-            char = chars[j]
+        char = chars[j]
+        if english_alphabet.find(char.lower()) + 1:
             chars[j] = english_alphabet[len(english_alphabet) - english_alphabet.find(char.lower()) - 1]
             if char.isupper():
                 chars[j] = chars[j].upper()
-        elif russian_alphabet.find(chars[j].lower()) + 1:
-            char = chars[j]
+        elif russian_alphabet.find(char.lower()) + 1:
             chars[j] = russian_alphabet[len(russian_alphabet) - russian_alphabet.find(char.lower()) - 1]
             if char.isupper():
                 chars[j] = chars[j].upper()
